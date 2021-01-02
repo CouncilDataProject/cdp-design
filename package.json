@@ -10,7 +10,7 @@
   "description": "General styling and content for Council Data Project websites.",
   "license": "MIT",
   "scripts": {
-    "build": "make generate"
+    "build": "node generate-files.js"
   },
   "files": [
     "README.md",

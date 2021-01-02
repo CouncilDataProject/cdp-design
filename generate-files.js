@@ -71,5 +71,4 @@ bgTransOrigs.map((f) => generateBackgroundVariant(f));
 
 // RUN ALL ICON SIZES GENERATION
 allIcons = glob.sync(__dirname + "/src/static/img/icon/*.png");
-console.log(allIcons);
 allIcons.map((f) => generateResizeVariants(f));
