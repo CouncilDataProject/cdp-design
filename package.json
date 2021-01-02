@@ -1,0 +1,33 @@
+{
+  "name": "@councildataproject/cdp-design",
+  "engines": {
+    "node": "12.x",
+    "npm": "6.x"
+  },
+  "version": "1.0.0",
+  "private": true,
+  "author": "Council Data Project",
+  "description": "General styling and content for Council Data Project websites.",
+  "license": "MIT",
+  "scripts": {
+    "build": "make generate"
+  },
+  "files": [
+    "README.md",
+    "package.json"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CouncilDataProject/cdp-design.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CouncilDataProject/cdp-design/issues"
+  },
+  "homepage": "https://github.com/CouncilDataProject/cdp-design",
+  "dependencies": {
+    "glob": "^7.1.6"
+  }
+}
