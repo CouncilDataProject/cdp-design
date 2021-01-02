@@ -27,7 +27,7 @@
     "url": "https://github.com/CouncilDataProject/cdp-design/issues"
   },
   "homepage": "https://github.com/CouncilDataProject/cdp-design",
-  "dependencies": {
+  "devDependencies": {
     "glob": "^7.1.6"
   }
 }
