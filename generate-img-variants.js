@@ -25,7 +25,6 @@ function generateResizeVariants(f) {
 }
 
 function generateBackgroundVariant(f) {
-  // Generate white and black backgrounds
   let bgWhite = f.replace("bg-transparent", "bg-white");
   let bgBlack = f.replace("bg-transparent", "bg-black");
 

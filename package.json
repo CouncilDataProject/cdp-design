@@ -10,11 +10,12 @@
   "description": "General styling and content for Council Data Project websites.",
   "license": "MIT",
   "scripts": {
-    "build": "node generate-files.js"
+    "build": "node generate-img-variants.js && node generate-cdp-colors.js && node generate-cdp-img.js"
   },
   "files": [
     "README.md",
-    "package.json"
+    "package.json",
+    "src/static/*"
   ],
   "publishConfig": {
     "access": "public"
