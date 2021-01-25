@@ -71,7 +71,7 @@ import "@councildataproject/cdp-design/dist/colors.css";
 ### Favicon
 
 The most update-to-date favicon will always be found at:
-[`src/static/images/favicon.ico`](https://raw.githubusercontent.com/CouncilDataProject/cdp-design/main/src/static/img/favicon.ico)
+[`src/static/images/favicon.ico`](https://raw.githubusercontent.com/CouncilDataProject/cdp-design/main/src/static/images/favicon.ico)
 
 ## Contributing
 
