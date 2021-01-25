@@ -86,6 +86,7 @@ Much of this library and design system are auto-generated from a few key assets:
   branding with all content of the logo in black and a transparent background.
 - `src/static/images/logo/white-bg-transparent.png`: the full CDP logo, used for
   branding with all content of the logo in white and a transparent background.
+- `generate-cdp-colors.js`: the script to generate the `cdp-colors.css` file.
 
 For example, if you wanted to propose a change to our logo you would:
 
@@ -98,10 +99,6 @@ For example, if you wanted to propose a change to our logo you would:
    `src/static/images/logo` directory.
 6. Add, commit, and push the new logo files to your "fork".
 7. Create a "Pull Request" from your "fork" to this repository.
-
-Finally, if you wanted to update or add to the CDP color scheme or
-
-And finally, the CDP base color scheme is defined in `generate-cdp-colors.js`.
 
 ### Design Guidelines
 
