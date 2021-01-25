@@ -1,7 +1,7 @@
 const { glob } = require("glob");
 const fs = require("fs");
 
-let allImages = glob.sync(__dirname + "/src/static/img/**/*.png");
+let allImages = glob.sync(__dirname + "/src/static/images/**/*.png");
 
 let cssElements = [];
 allImages.map((f) => {
@@ -12,7 +12,7 @@ allImages.map((f) => {
 
   cssElements.push(
     `.cdp-${imgType}-${className} {
-    content: url(../img/${imgType}/${fname})
+    content: url(../images/${imgType}/${fname})
 }`
   );
 });
@@ -20,7 +20,7 @@ allImages.map((f) => {
 let cssText = cssElements.join("\n\n");
 
 // Remove old and write new
-const cssFilepath = __dirname + "/src/static/css/cdp-img.css";
+const cssFilepath = __dirname + "/src/static/css/cdp-images.css";
 try {
   fs.unlinkSync(cssFilepath);
 } catch (err) {
