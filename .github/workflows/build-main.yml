@@ -57,7 +57,7 @@ jobs:
 
   publish:
     needs: [test, build]
-    if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags/v')
+    if: github.event_name == 'push' && contains(github.event.head_commit.message, 'Bump version')
     runs-on: ubuntu-latest
 
     steps:

@@ -12,7 +12,8 @@
   "scripts": {
     "generate": "node generate-cdp-colors.js && node generate-image-variants.js && node generate-cdp-images.js",
     "build-dev": "webpack --progress",
-    "build-prod": "webpack --progress --mode=production"
+    "build-prod": "webpack --progress --mode=production",
+    "bumpversion": "npm version patch -m 'Bump version: %s'"
   },
   "files": [
     "README.md",
