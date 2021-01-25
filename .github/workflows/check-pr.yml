@@ -22,7 +22,7 @@ jobs:
       run: |
         npm run generate
     - name: Create Log of Created Files
-      if: log-created-files
+      id: log-created-files
       run: |
         tree -a src/static/ > created-files.txt
         body=$(cat created-files.txt)
