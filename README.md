@@ -11,7 +11,7 @@ activists, researchers, and all members of each community we serve with the tool
 need to stay informed and hold their Council Members accountable.
 
 For more information about CouncilDataProject, please visit
-[our website](councildataproject.github.io).
+[our website](https://councildataproject.github.io/).
 
 ## About
 
@@ -20,10 +20,12 @@ required for the various websites in the CDP ecosystem.
 
 This means that any design changes here propagate to:
 
-- `councildataproject.github.io` the primary website for the entire organization
-- `cdp-frontend` a library that is used by all CDP instance websites
+- [councildataproject.github.io](https://councildataproject.github.io/)
+  the primary website for the entire organization
+- [cdp-frontend](https://github.com/CouncilDataProject/cdp-frontend)
+  a library that is used by all CDP instance websites
 
-## Developer Shortlinks and Usage
+## Developer Usage
 
 ### CDP Images
 
@@ -50,7 +52,7 @@ import "@councildataproject/cdp-design/dist/images.css";
 
 ### CDP Colors
 
-Colors are simple content of background color specifications.
+Colors are simple color or background-color CSS attributes.
 
 Content colors follow the specification: `cdp-{color}`
 Background colors folow the specification: `cdp-bg-{color}`
@@ -73,7 +75,17 @@ The most update-to-date favicon will always be found at:
 
 ## Contributing
 
-Much of this library and design system are auto-generated from a few key assets.
+Much of this library and design system are auto-generated from a few key assets:
+
+- `src/static/css/cdp-text.css`: which contains all typography styling
+- `src/static/images/icon/black-bg-transparent.png`: the CDP icon, used for favicons,
+  headers, etc. with all content of the icon in black and a transparent background.
+- `src/static/images/icon/white-bg-transparent.png`: the CDP icon, used for favicons,
+  headers, etc. with all content of the icon in white and a transparent background.
+- `src/static/images/logo/black-bg-transparent.png`: the full CDP logo, used for
+  branding with all content of the logo in black and a transparent background.
+- `src/static/images/logo/white-bg-transparent.png`: the full CDP logo, used for
+  branding with all content of the logo in white and a transparent background.
 
 For example, if you wanted to propose a change to our logo you would:
 
@@ -87,32 +99,31 @@ For example, if you wanted to propose a change to our logo you would:
 6. Add, commit, and push the new logo files to your "fork".
 7. Create a "Pull Request" from your "fork" to this repository.
 
-The "few key assets" that we generate all of the other resources from are:
-
-- `src/static/css/cdp-text.css`: which contains all typography styling
-- `src/static/images/icon/black-bg-transparent.png`: the CDP icon, used for favicons,
-  headers, etc. with all content of the icon in black and a transparent background.
-- `src/static/images/icon/white-bg-transparent.png`: the CDP icon, used for favicons,
-  headers, etc. with all content of the icon in white and a transparent background.
-- `src/static/images/logo/black-bg-transparent.png`: the full CDP logo, used for
-  branding with all content of the logo in black and a transparent background.
-- `src/static/images/logo/white-bg-transparent.png`: the full CDP logo, used for
-  branding with all content of the logo in white and a transparent background.
+Finally, if you wanted to update or add to the CDP color scheme or
 
 And finally, the CDP base color scheme is defined in `generate-cdp-colors.js`.
 
 ### Design Guidelines
 
+#### General
+
+CouncilDataProject designs should attempt to fit nicely within the
+[Mozilla Protocol](https://protocol.mozilla.org/) design system.
+
 #### Logo
 
-Logos can be any size or dimension file as long as a logo is:
+Logo proposals can:
+
+- be any size or dimension
+
+Logo proposals must:
 
 - created with black and white color variants
 - stored in PNG format
 
 #### Icon
 
-Icons must:
+Icon proposals must:
 
 - be created with black and white color variants
 - be at least 256x256 in size
