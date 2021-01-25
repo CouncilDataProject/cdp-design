@@ -62,7 +62,7 @@ jobs:
           ```
           ${{ steps.log-created-files.outputs.body }}
           ```
-          _This comment was written by a bot!_
+          _This comment was written by a bot! (Updated)_
 
   build:
     runs-on: ubuntu-latest
