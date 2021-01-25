@@ -1,0 +1,81 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    # <minute [0,59]> <hour [0,23]> <day of the month [1,31]> <month of the year [1,12]> <day of the week [0,6]>
+    # https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07
+    # Run every Monday at 18:00:00 UTC (Monday at 10:00:00 PST)
+    - cron: '0 18 * * 1'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - name: Install Tree
+      run: |
+        sudo apt-get install tree
+    - name: Install Dependencies
+      run: |
+        npm i
+    - name: Generate Files
+      run: |
+        npm run generate
+    - name: Log Created Files
+      run: |
+        tree -a src/static/
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - name: Install Dependencies
+      run: |
+        npm i
+    - name: Generate Files
+      run: |
+        npm run generate
+    - name: Run Build
+      run: |
+        npm run build-dev
+    - name: Log Create Dist
+      run: |
+        ls -l dist/
+
+  publish:
+    needs: [test, build]
+    if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - name: Install Dependencies
+      run: |
+        npm i
+    - name: Generate Files
+      run: |
+        npm run generate
+    - name: Run Build
+      run: |
+        npm run build-prod
+    - name: Publish to npm
+      run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -58,16 +58,16 @@ function generateBackgroundVariant(f) {
 }
 
 // CLEAR OLD FILES
-let bgBlackFiles = glob.sync(__dirname + "/src/static/img/**/*bg-black*");
-let bgWhiteFiles = glob.sync(__dirname + "/src/static/img/**/*bg-white*");
-let bgTransFiles = glob.sync(__dirname + "/src/static/img/**/*bg-transparent-size*");
+let bgBlackFiles = glob.sync(__dirname + "/src/static/images/**/*bg-black*");
+let bgWhiteFiles = glob.sync(__dirname + "/src/static/images/**/*bg-white*");
+let bgTransFiles = glob.sync(__dirname + "/src/static/images/**/*bg-transparent-size*");
 let allPriorGenFiles = bgBlackFiles.concat(bgWhiteFiles, bgTransFiles);
 allPriorGenFiles.map((f) => fs.unlinkSync(f));
 
 // RUN BLACK AND WHITE BACKGROUND GENERATION
-bgTransOrigs = glob.sync(__dirname + "/src/static/img/**/*-bg-transparent.png");
+bgTransOrigs = glob.sync(__dirname + "/src/static/images/**/*-bg-transparent.png");
 bgTransOrigs.map((f) => generateBackgroundVariant(f));
 
 // RUN ALL ICON SIZES GENERATION
-allIcons = glob.sync(__dirname + "/src/static/img/icon/*.png");
+allIcons = glob.sync(__dirname + "/src/static/images/icon/*.png");
 allIcons.map((f) => generateResizeVariants(f));

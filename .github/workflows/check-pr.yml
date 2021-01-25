@@ -1,0 +1,88 @@
+name: Check PR
+
+on: pull_request
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - name: Install Tree
+      run: |
+        sudo apt-get install tree
+    - name: Install Dependencies
+      run: |
+        npm i
+    - name: Generate Files
+      run: |
+        npm run generate
+    - name: Create Log of Created Files
+      id: log-created-files
+      run: |
+        tree -a src/static/ > created-files.txt
+        body=$(cat created-files.txt)
+        body="${body//'%'/'%25'}"
+        body="${body//$'\n'/'%0A'}"
+        body="${body//$'\r'/'%0D'}" 
+        echo ::set-output name=body::$body
+
+    # Post results of tree to PR
+    - name: Find Comment
+      uses: peter-evans/find-comment@v1
+      id: fc
+      with:
+        issue-number: ${{ github.event.pull_request.number }}
+        comment-author: 'github-actions[bot]'
+        body-includes: This comment was written by a bot!
+
+    - name: Create comment
+      if: ${{ steps.fc.outputs.comment-id == 0 }}
+      uses: peter-evans/create-or-update-comment@v1
+      with:
+        issue-number: ${{ github.event.pull_request.number }}
+        body: |
+          Generated files:
+          ```
+          ${{ steps.log-created-files.outputs.body }}
+          ```
+          _This comment was written by a bot!_
+
+    - name: Update comment
+      if: ${{ steps.fc.outputs.comment-id != 0 }}
+      uses: peter-evans/create-or-update-comment@v1
+      with:
+        comment-id: ${{ steps.fc.outputs.comment-id }}
+        edit-mode: 'replace'
+        body: |
+          Generated files:
+          ```
+          ${{ steps.log-created-files.outputs.body }}
+          ```
+          _This comment was written by a bot! (Updated)_
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - name: Install Dependencies
+      run: |
+        npm i
+    - name: Generate Files
+      run: |
+        npm run generate
+    - name: Run Build
+      run: |
+        npm run build-dev
+    - name: Log Create Dist
+      run: |
+        ls -l dist/
