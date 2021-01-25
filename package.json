@@ -5,7 +5,6 @@
     "npm": "6.x"
   },
   "version": "1.0.0",
-  "private": true,
   "author": "Council Data Project",
   "description": "General styling and content for Council Data Project websites.",
   "license": "MIT",
