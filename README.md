@@ -1,42 +1,33 @@
 # cdp-design
 
-Styling and graphic design for Council Data Project websites and instances
+Styling and graphic design for Council Data Project websites and instances.
 
 ---
 
-## CouncilDataProject
+## Council Data Project
 
-Council Data Project is an open-source project dedicated to providing journalists,
-activists, researchers, and all members of each community we serve with the tools they
-need to stay informed and hold their Council Members accountable.
+Council Data Project is an open-source project dedicated to providing journalists, activists, researchers, and all members of each community we serve with the tools they need to stay informed and hold their Council Members accountable.
 
-For more information about CouncilDataProject, please visit
-[our website](https://councildataproject.github.io/).
+For more information about Council Data Project, please visit [our website](https://councildataproject.org/).
 
 ## About
 
-`cdp-design` is used to maintain all the styling and graphic design assets
-required for the various websites in the CDP ecosystem.
+`cdp-design` is used to maintain all the styling and graphic design assets required for the various websites in the CDP ecosystem.
 
-This means that any design changes here propagate to:
+This means that any design changes made here propagate to:
 
-- [councildataproject.github.io](https://councildataproject.github.io/)
-  the primary website for the entire organization
-- [cdp-frontend](https://github.com/CouncilDataProject/cdp-frontend)
-  a library that is used by all CDP instance websites
+- [councildataproject.org](https://councildataproject.org/): The primary website for the entire organization
+- [cdp-frontend](https://github.com/CouncilDataProject/cdp-frontend): A library that is used by all CDP instance websites
 
 ## Developer Usage
 
 ### CDP Images
 
-Images are injected as a
-[CSS content attribute](https://developer.mozilla.org/en-US/docs/Web/CSS/content)
+Images are injected as a [CSS content attribute](https://developer.mozilla.org/en-US/docs/Web/CSS/content).
 
-Logo image classes follow the specification:
-`cdp-logo-{primaryColor}-bg-{backgroundColor}`
+Logo image classes follow the specification: `cdp-logo-{primaryColor}-bg-{backgroundColor}`
 
-Icon image classes follow the specification:
-`cdp-icon-{primaryColor}-bg-{backgroundColor}-size-{int}`
+Icon image classes follow the specification: `cdp-icon-{primaryColor}-bg-{backgroundColor}-size-{int}`
 
 Example:
 
@@ -47,7 +38,7 @@ import "@councildataproject/cdp-design/dist/images.css";
 // sets the content of this div to the CDP logo
 <div className="cdp-logo-black-bg-transparent">...</div>;
 // OR an icon
-// <div className="cdp-icon-black-bg-transparent-size-64">...</div>;
+<div className="cdp-icon-black-bg-transparent-size-64">...</div>;
 ```
 
 ### CDP Colors
@@ -55,6 +46,7 @@ import "@councildataproject/cdp-design/dist/images.css";
 Colors are simple color or background-color CSS attributes.
 
 Content colors follow the specification: `cdp-{color}`
+
 Background colors folow the specification: `cdp-bg-{color}`
 
 Example:
@@ -77,55 +69,47 @@ The most update-to-date favicon will always be found at:
 
 Much of this library and design system are auto-generated from a few key assets:
 
-- `src/static/css/cdp-text.css`: which contains all typography styling
-- `src/static/images/icon/black-bg-transparent.png`: the CDP icon, used for favicons,
-  headers, etc. with all content of the icon in black and a transparent background.
-- `src/static/images/icon/white-bg-transparent.png`: the CDP icon, used for favicons,
-  headers, etc. with all content of the icon in white and a transparent background.
-- `src/static/images/logo/black-bg-transparent.png`: the full CDP logo, used for
-  branding with all content of the logo in black and a transparent background.
-- `src/static/images/logo/white-bg-transparent.png`: the full CDP logo, used for
-  branding with all content of the logo in white and a transparent background.
-- `generate-cdp-colors.js`: the script to generate the `cdp-colors.css` file.
+- `src/static/css/cdp-text.css`: All typography styling.
+- `src/static/images/icon/black-bg-transparent.png`: The CDP icon, used for favicons, headers, etc. with all content of the icon in black and a transparent background.
+- `src/static/images/icon/white-bg-transparent.png`: The CDP icon, used for favicons, headers, etc. with all content of the icon in white and a transparent background.
+- `src/static/images/logo/black-bg-transparent.png`: The full CDP logo, used for branding with all content of the logo in black and a transparent background.
+- `src/static/images/logo/white-bg-transparent.png`: The full CDP logo, used for branding with all content of the logo in white and a transparent background.
+- `generate-cdp-colors.js`: The script to generate the `cdp-colors.css` file.
 
 For example, if you wanted to propose a change to our logo you would:
 
-1. "Fork" the `cdp-design` repository.
+1. Fork the `cdp-design` repository.
 2. Clone your "forked" `cdp-design` repository to your local machine.
-3. Replace the `black-bg-transparent.png` and the `white-bg-transparent.png` files
-   located in the `src/static/images/logo/` directory.
+3. Replace the `black-bg-transparent.png` and the `white-bg-transparent.png` files located in the `src/static/images/logo/` directory.
 4. Run `npm run generate` from the command line to generate all the new image variants.
-5. Verify that all assets have been created properly in a file browser by viewing the
-   `src/static/images/logo` directory.
-6. Add, commit, and push the new logo files to your "fork".
-7. Create a "Pull Request" from your "fork" to this repository.
+5. Verify that all assets have been created properly in a file browser by viewing the `src/static/images/logo` directory.
+6. Add, commit, and push the new logo files to your fork.
+7. Create a pull request from your fork to this repository.
 
 ### Design Guidelines
 
 #### General
 
-CouncilDataProject designs should attempt to fit nicely within the
-[Mozilla Protocol](https://protocol.mozilla.org/) design system.
+Council Data Project designs should attempt to fit nicely within the [Mozilla Protocol](https://protocol.mozilla.org/) design system.
 
 #### Logo
 
-Logo proposals can:
+Logo proposals can be:
 
-- be any size or dimension
+- Any size or dimension
 
-Logo proposals must:
+Logo proposals must be:
 
-- created with black and white color variants
-- stored in PNG format
+- Created with black and white color variants
+- Stored in PNG format
 
 #### Icon
 
 Icon proposals must:
 
-- be created with black and white color variants
-- be at least 256x256 in size
-- have square dimensions (256x256, 512x512, etc.)
-- stored in PNG format
+- Be created with black and white color variants
+- Be at least 256x256 in size
+- Have square dimensions (256x256, 512x512, etc.)
+- Stored in PNG format
 
-If you are updating the icon, please also ensure that you update the `favicon.ico`
-in the `src/static/images/` directory.
+If you are updating the icon, please also ensure that you update the `favicon.ico` in the `src/static/images/` directory.
