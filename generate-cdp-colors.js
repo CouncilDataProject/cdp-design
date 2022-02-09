@@ -1,6 +1,16 @@
 const fs = require("fs");
 
 const COLORS = {
+  light_acceptance_green: "#3FE1B0",
+  light_adopted_blue: "#80EBFF",
+  light_neutral_grey: "#F2F2F2",
+  light_rejected_red: "#FF9AA2",
+  light_in_progress_orange: "#FFD3B2",
+  acceptance_green: "#008787",
+  adopted_blue: "#0090ED",
+  neutral_grey: "#B2B2B2",
+  rejected_red: "#E22850",
+  in_progress_orange: "#FF7139",
   black: "#000000",
   white: "#fff",
   neon_blue: "#00ffff",
