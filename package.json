@@ -4,7 +4,7 @@
     "node": "12.x",
     "npm": "6.x"
   },
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "Council Data Project",
   "description": "General styling and content for Council Data Project websites.",
   "license": "MIT",
