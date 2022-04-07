@@ -1,8 +1,8 @@
 {
   "name": "@councildataproject/cdp-design",
   "engines": {
-    "node": "12.x",
-    "npm": "6.x"
+    "node": "16.x",
+    "npm": "8.x"
   },
   "version": "1.0.4",
   "author": "Council Data Project",
